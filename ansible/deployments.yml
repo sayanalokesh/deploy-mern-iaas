@@ -1,0 +1,86 @@
+---
+- name: Web Server Setup
+  hosts: web_servers
+  remote_user: ubuntu
+  become: yes
+  vars:
+    ansible_ssh_private_key_file: /home/ubuntu/.ssh/id_rsa
+
+  tasks:
+    - name: Install Node.js and NPM
+      apt:
+        name:
+          - nodejs
+          - npm
+        state: present
+
+    - name: Clone MERN application repository
+      git:
+        repo: https://github.com/UnpredictablePrashant/TravelMemory.git
+        dest: /home/ubuntu/
+        clone: yes
+
+    # - name: Install application dependencies
+    #   command: npm install
+    #   args:
+    #     chdir: /path/to/your/application
+
+# ---
+
+# - name: Add SSH key to authorized keys
+#   hosts: webserver
+#   become: yes
+#   vars:
+#     ansible_ssh_private_key_file: ~/.ssh/id_rsa
+#     # ssh_user: ec2-user # Update this to match your target machine's user
+#     # public_key_file: /path/to/your/public_key.pub # Update this with the path to your public key
+
+#   tasks:
+#     - name: Ensure SSH directory exists for the user
+#       file:
+#         path: "/home/{{ ssh_user }}/.ssh"
+#         state: directory
+#         owner: "{{ ssh_user }}"
+#         group: "{{ ssh_user }}"
+#         mode: "0700"
+
+#     - name: Add SSH public key to authorized keys
+#       authorized_key:
+#         user: "{{ ssh_user }}"
+#         key: "{{ lookup('file', public_key_file) }}"
+#         state: present
+# - name: Web Server Setup
+#   hosts: web_servers
+#   become: yes
+
+#   tasks:
+#     - name: Install Node.js and NPM
+#       apt:
+#         name:
+#           - nodejs
+#           - npm
+#         state: present
+
+#     - name: Clone MERN application repository
+#       git:
+#         repo: https://github.com/UnpredictablePrashant/TravelMemory.git
+#         dest: C:\Users\Lokesh\OneDrive\Desktop\Hero Vired\Sessions\Terraform\deploy-mern-iaas
+#         clone: yes
+
+#     # - name: Install application dependencies
+#     #   command: npm install
+#     #   args:
+#     #     chdir: /path/to/your/application
+
+
+
+# # - hosts: frontend
+# #   become: yes
+# #   tasks:
+# #     - name: updating the system
+# #       shell: |
+# #       apt-get update -y
+# #     - name: install nodejs
+# #       shell: |
+# #         curl -s https://deb.nodesource.com/setup_18.x | sudo bash
+# #         sudo apt-get install nodejs -y
