@@ -10,6 +10,7 @@ This project demonstrates how to automate the deployment of a MERN (MongoDB, Exp
 3. [EC2 Instance Provisioning](#3-ec2-instance-provisioning)
 4. [Security Groups and IAM Roles](#4-security-groups-and-iam-roles)
 5. [Resource Output](#5-resource-output)
+
 [Part 2: Configuration and Deployment with Ansible](#part-2-Configuration-and-deployment-with-ansible)
 
 ## Part 1: Infrastructure Setup with Terraform
