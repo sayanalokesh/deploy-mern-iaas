@@ -120,3 +120,4 @@ terraform apply
 - **Output the public IP of the web server EC2 instance.**
 ![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/41a91dda-a2ee-4922-9e61-031f377d2ad4)
 
+## Part 2: Configuration and Deployment with Ansible
