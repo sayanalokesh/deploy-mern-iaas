@@ -12,9 +12,9 @@ This project demonstrates how to automate the deployment of a MERN (MongoDB, Exp
 5. [Resource Output](#5-resource-output)
 
 [Part 2: Configuration and Deployment with Ansible](#part-2-Configuration-and-deployment-with-ansible)
-1. [1. Ansible Configuration](#1-ansible-configuration)
-2. [2. Web Server Setup](#2-webserver-setup)
-3. [3. Security Hardening](3-security-hardening)
+1. [Ansible Configuration](#1-ansible-configuration)
+2. [Web Server Setup](#2-web-server-setup)
+3. [Security Hardening](3-security-hardening)
 
 ## Part 1: Infrastructure Setup with Terraform
 
