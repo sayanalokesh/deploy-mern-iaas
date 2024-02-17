@@ -4,7 +4,7 @@ This project demonstrates how to automate the deployment of a MERN (MongoDB, Exp
 # Terraform Infrastructure Setup Documentation
 
 ## Table of Contents
-[Part 1: Infrastructure Setup with Terraform](#part-1-infrastructure-setuo-with-terraform)
+[Part 1: Infrastructure Setup with Terraform](#part-1-infrastructure-setup-with-terraform)
 1. [AWS Setup and Terraform Initialization](#1-aws-setup-and-terraform-initialization)
 2. [VPC and Network Configuration](#2-vpc-and-network-configuration)
 3. [EC2 Instance Provisioning](#3-ec2-instance-provisioning)
