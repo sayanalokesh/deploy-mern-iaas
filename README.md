@@ -198,3 +198,21 @@ Clone the MERN application repository and install dependencies.
 Configure environment variables and start the Node.js application.
 
 Ensure the React frontend communicates with the Express backend.
+
+### Security Hardening
+
+Harden the security by configuring firewalls and security groups. You can find the file [here](https://github.com/sayanalokesh/deploy-mern-iaas/blob/main/ansible/security.yml)
+
+Implement additional security measures as needed (e.g., SSH key pairs, disabling root login).
+
+For connecting ansible to AWS resources, we need to install the following packages on the ansible control node.
+```
+apt install python3-pip
+pip install awscli 
+pip install boto
+pip install boto3
+pip install bs4
+ansible-galaxy collection install community.aws
+ansible-galaxy collection install amazon.aws:==3.3.1 --force
+```
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/ea32b966-3ca1-4c46-9fc5-80ff4b1e4d99)
