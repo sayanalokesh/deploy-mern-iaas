@@ -84,7 +84,7 @@ Initialize the Terraform usign the below command
 terraform init
 
 ```
-Paste this [code](main.tf) in main.tf and use the below commands to amend the changes
+Paste this [code](https://github.com/sayanalokesh/deploy-mern-iaas/blob/main/terraform/main.tf) in main.tf and use the below commands to amend the changes
 
 ```
 terraform plan
