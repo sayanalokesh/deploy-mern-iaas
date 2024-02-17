@@ -4,11 +4,13 @@ This project demonstrates how to automate the deployment of a MERN (MongoDB, Exp
 # Terraform Infrastructure Setup Documentation
 
 ## Table of Contents
+[Part 1: Infrastructure Setup with Terraform](#part-1-infrastructure-setuo-with-terraform)
 1. [AWS Setup and Terraform Initialization](#1-aws-setup-and-terraform-initialization)
 2. [VPC and Network Configuration](#2-vpc-and-network-configuration)
 3. [EC2 Instance Provisioning](#3-ec2-instance-provisioning)
 4. [Security Groups and IAM Roles](#4-security-groups-and-iam-roles)
 5. [Resource Output](#5-resource-output)
+[Part 2: Configuration and Deployment with Ansible](#part-2-Configuration-and-deployment-with-ansible)
 
 ## Part 1: Infrastructure Setup with Terraform
 
@@ -121,17 +123,16 @@ terraform apply
 ![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/41a91dda-a2ee-4922-9e61-031f377d2ad4)
 
 ## Part 2: Configuration and Deployment with Ansible
-# Ansible Configuration
+
+### 1. Ansible Configuration
 
 Configure Ansible to communicate with the AWS EC2 instances.
 
-Create ec2 instance t2.micro which will act as a control node of ansible from this particular instance ansible will control all other instances.
-
-![EC2 Instance](image_path_here)
+Create ec2 instance t2.micro which will act as a control node of Ansible from this particular instance, and Ansible will control all other instances.
 
 ## Activities
 
-Some activities are to be performed on Control node and some on the worker nodes Installing Ansible on Ubuntu.
+Some activities will be performed on the Control node and some on the worker nodes Installing Ansible on Ubuntu.
 
 ### Activities to be done on the Control node
 
@@ -145,7 +146,7 @@ ansible --version
 cd /etc/ansible/
 nano hosts
 ```
-In the hosts file, enter the private IP of the worker nodes and create a group.
+In the host file, enter the private IP of the worker nodes and create a group.
 ```
 [Demo]
 172.31.40.147 #private IP of the worker nodes
@@ -153,7 +154,7 @@ In the hosts file, enter the private IP of the worker nodes and create a group.
 ```
 nano ansible.cfg
 ```
-enter the below code
+enter the code below
 ```
 [default]
 
@@ -169,7 +170,7 @@ passwd root
 ### On Worker nodes
 ```
 nano /etc/ssh/sshd_config
-set as show below
+set as shown below
 
 #LoginGraceTime 2m
 PermitRootLogin yes
@@ -189,7 +190,7 @@ After all the configuration, let's test it:
 ansible all -m ping
 
 ```
-### Web Server Setup
+### 2. Web Server Setup
 
 Write an Ansible playbook and you can find the playbook [here](https://github.com/sayanalokesh/deploy-mern-iaas/blob/main/ansible/deployments.yml) to install Node.js and NPM on the web server.
 
@@ -199,13 +200,13 @@ Configure environment variables and start the Node.js application.
 
 Ensure the React frontend communicates with the Express backend.
 
-### Security Hardening
+### 3. Security Hardening
 
 Harden the security by configuring firewalls and security groups. You can find the file [here](https://github.com/sayanalokesh/deploy-mern-iaas/blob/main/ansible/security.yml)
 
 Implement additional security measures as needed (e.g., SSH key pairs, disabling root login).
 
-For connecting ansible to AWS resources, we need to install the following packages on the ansible control node.
+For connecting Ansible to AWS resources, we need to install the following packages on the Ansible control node.
 ```
 apt install python3-pip
 pip install awscli 
