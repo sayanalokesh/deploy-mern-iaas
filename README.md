@@ -221,3 +221,6 @@ ansible-galaxy collection install community.aws
 ansible-galaxy collection install amazon.aws:==3.3.1 --force
 ```
 ![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/ea32b966-3ca1-4c46-9fc5-80ff4b1e4d99)
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/5f4295b7-fa7a-4760-98bb-5d732728b7cf)
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/0f88715a-dfbf-43d2-beae-fc916cb92d92)
+
