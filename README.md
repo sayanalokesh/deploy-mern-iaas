@@ -10,6 +10,24 @@ This project demonstrates how to automate the deployment of a MERN (MongoDB, Exp
 4. [Security Groups and IAM Roles](#4-security-groups-and-iam-roles)
 5. [Resource Output](#5-resource-output)
 
+## Part 1: Infrastructure Setup with Terraform
+
+This document outlines the setup and configuration of infrastructure using Terraform on AWS.
+
+### 1. AWS Setup and Terraform Initialization:
+
+- **Configure AWS CLI and authenticate with your AWS account. Below command is to install on Ubuntu machine**
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+```
+Use the below command to authenticate AWS via CLI
+```
+aws configure
+```
+- **Initialize a new Terraform project targeting AWS.**
 # Installing Terraform on Ubuntu:
 Ubuntu:
 
@@ -55,15 +73,25 @@ Ubuntu:
 
 Replace <VERSION> with the latest version available on the HashiCorp website.
 
-## Part 1: Infrastructure Setup with Terraform
+Creat a new directory using the below commands
+```
+mkdir terraform
+cd terraform
+touch main.tf
+```
+Initialize the Terraform usign the below command
+```
+terraform init
 
-This document outlines the setup and configuration of infrastructure using Terraform on AWS.
+```
+Paste this [code](main.tf) in main.tf and use the below commands to amend the changes
 
-### 1. AWS Setup and Terraform Initialization:
-
-- **Configure AWS CLI and authenticate with your AWS account.**
-- **Initialize a new Terraform project targeting AWS.**
-
+```
+terraform plan
+```
+```
+terraform apply
+```
 ### 2. VPC and Network Configuration:
 
 - **Create an AWS VPC with two subnets: one public and one private.**
@@ -83,42 +111,3 @@ This document outlines the setup and configuration of infrastructure using Terra
 ### 5. Resource Output:
 
 - **Output the public IP of the web server EC2 instance.**
-
-## Terraform Configuration
-
-```hcl
-# Creates an EC2 instance with the default security group
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "5.32.1"
-    }
-  }
-}
-
-provider "aws" {
-  region = "ap-south-1"  # Change to your desired region
-}
-
-# VPC and Network Configuration
-...
-
-# Security Groups and IAM Roles
-...
-
-# Instances Provisioning
-...
-
-# IAM Policies
-...
-
-# Displaying the Output
-output "lokesh_terraform_instance_ip" {
-  value = aws_instance.lokesh_terraform.public_ip
-}
-
-output "lokesh_database_terraform_instance_ip" {
-  value = aws_instance.lokesh_terraform.public_ip
-}
-
