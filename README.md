@@ -92,22 +92,31 @@ terraform plan
 ```
 terraform apply
 ```
-### 2. VPC and Network Configuration:
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/4d9fcfc7-60d5-4d2e-9b5d-18f80d8682b0)
 
+### 2. VPC and Network Configuration:
+- You can find all the steps in the main.tf file.
 - **Create an AWS VPC with two subnets: one public and one private.**
+
 - **Set up an Internet Gateway and a NAT Gateway.**
 - **Configure route tables for both subnets.**
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/88d92c74-c03c-46d7-a4c9-e397f3cc24fb)
+
 
 ### 3. EC2 Instance Provisioning:
-
+- You can find all the steps in the main.tf file.
 - **Launch two EC2 instances: one in the public subnet (for the web server) and another in the private subnet (for the database).**
 - **Ensure both instances are accessible via SSH (public instance only accessible from your IP).**
 
 ### 4. Security Groups and IAM Roles:
-
+- You can find all the steps in the main.tf file.
 - **Create necessary security groups for web and database servers.**
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/ea32b966-3ca1-4c46-9fc5-80ff4b1e4d99)
 - **Set up IAM roles for EC2 instances with required permissions.**
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/539e9d09-8686-4407-a54f-0d0187f4b281)
 
 ### 5. Resource Output:
 
 - **Output the public IP of the web server EC2 instance.**
+![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/41a91dda-a2ee-4922-9e61-031f377d2ad4)
+
