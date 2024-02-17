@@ -191,7 +191,7 @@ ansible all -m ping
 ```
 ### Web Server Setup
 
-Write an Ansible playbook to install Node.js and NPM on the web server.
+Write an Ansible playbook and you can find the playbook [here](https://github.com/sayanalokesh/deploy-mern-iaas/blob/main/ansible/deployments.yml) to install Node.js and NPM on the web server.
 
 Clone the MERN application repository and install dependencies.
 
