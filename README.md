@@ -121,3 +121,80 @@ terraform apply
 ![image](https://github.com/sayanalokesh/deploy-mern-iaas/assets/105637305/41a91dda-a2ee-4922-9e61-031f377d2ad4)
 
 ## Part 2: Configuration and Deployment with Ansible
+# Ansible Configuration
+
+Configure Ansible to communicate with the AWS EC2 instances.
+
+Create ec2 instance t2.micro which will act as a control node of ansible from this particular instance ansible will control all other instances.
+
+![EC2 Instance](image_path_here)
+
+## Activities
+
+Some activities are to be performed on Control node and some on the worker nodes Installing Ansible on Ubuntu.
+
+### Activities to be done on the Control node
+
+```bash
+sudo apt update
+sudo apt install openssh-server
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+ansible --version
+cd /etc/ansible/
+nano hosts
+```
+In the hosts file, enter the private IP of the worker nodes and create a group.
+```
+[Demo]
+172.31.40.147 #private IP of the worker nodes
+```
+```
+nano ansible.cfg
+```
+enter the below code
+```
+[default]
+
+inventory      = /etc/ansible/hosts
+sudo_user      = root
+remote_port    = 22
+host_key_checking = False
+```
+Create a root password in all worker nodes using passwd root.
+```
+passwd root
+```
+### On Worker nodes
+```
+nano /etc/ssh/sshd_config
+set as show below
+
+#LoginGraceTime 2m
+PermitRootLogin yes
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication yes
+
+```
+### Now on Control Node
+```
+ssh-keygen  # to generate the public key of the control node
+ssh-copy-id root@<private ip of workernode>   # copy the generated key to the worker nodes
+
+```
+After all the configuration, let's test it:
+```
+ansible all -m ping
+
+```
+### Web Server Setup
+
+Write an Ansible playbook to install Node.js and NPM on the web server.
+
+Clone the MERN application repository and install dependencies.
+
+Configure environment variables and start the Node.js application.
+
+Ensure the React frontend communicates with the Express backend.
